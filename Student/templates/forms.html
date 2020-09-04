@@ -1,0 +1,142 @@
+{% extends "index.html" %}
+
+{% load static %}
+
+{% block title %}Forms{% endblock %}
+
+	{% block content %}
+		{% if register_form %}
+		<section class="container-fluid mt-5">
+		<section class="row justify-content-center">
+			<section class="col-12 col-sm-6 col-md-4">
+				<h3 class="card-title text-center mb-5 bg-info pb-2">Register Form</h3>
+				<form method="post" action="{% url 'register' %}" class="form-signin"enctype="multipart/form-data">
+
+				{% csrf_token %}
+				
+				
+				{{register_form.as_p}}
+
+				<button class="btn btn-lg btn-primary btn-block" name="submit" type="submit">Enregistrer</button>
+				<a href="{% url 'listeE' %}" class="btn btn-lg btn-primary btn-block">ListeStudent</a>
+				</form>
+			</section>
+		</section>
+	</section>
+
+	{% endif %}
+
+	{% if school_form %}
+		<section class="container-fluid mt-5">
+		<section class="row justify-content-center">
+			<section class="col-12 col-sm-6 col-md-4">
+				<h3 class="card-title text-center mb-5 bg-info pb-2">School Form</h3>
+				<form method="post" action="{% url 'addSchool' %}" class="form-signin">
+
+				{% csrf_token %}
+				
+				
+				{{school_form.as_p}}
+
+				<button class="btn btn-lg btn-primary btn-block" name="submit" type="submit">Enregistre</button>
+				<a href="{% url 'listeE' %}" class="btn btn-lg btn-primary btn-block">ListeStudent</a>
+				</form>
+			</section>
+		</section>
+	</section>
+	{% endif %}
+
+
+	{% if classe_form %}
+		<section class="container-fluid mt-5">
+		<section class="row justify-content-center">
+			<section class="col-12 col-sm-6 col-md-4">
+				<h3 class="card-title text-center mb-5 bg-info pb-2">Classe Form</h3>
+				<form method="post" action="{% url 'addClass' %}" class="form-signin">
+
+				{% csrf_token %}
+				
+				
+				{{classe_form.as_p}}
+
+				<button class="btn btn-lg btn-primary btn-block" name="submit" type="submit">Enregistre</button>
+				<a href="{% url 'listeE' %}" class="btn btn-lg btn-primary btn-block">ListeStudent</a>
+				</form>
+			</section>
+		</section>
+	</section>
+
+	{% endif %}
+
+
+	{% if modifier_form %}
+	<section class="container-fluid mt-5">
+		<section class="row justify-content-center">
+			<section class="col-12 col-sm-6 col-md-4">
+				<h3 class="card-title text-center mb-5 bg-info pb-2">Modifier Form</h3>
+				<form method="post" action="{% url 'update' student.id %}" class="form-signin" enctype="multipart/form-data">
+
+				{% csrf_token %}
+				
+				
+				{{modifier_form.as_p}}
+
+				<button class="btn btn-lg btn-primary btn-block" name="submit" type="submit">Enregistrer</button>
+				</form>
+			</section>
+		</section>
+	</section>
+
+	{% endif %}
+	{% if profile_form %}
+	<section class="container-fluid mt-5">
+		<section class="row justify-content-center">
+			<section class="col-12 col-sm-6 col-md-4">
+				<h3 class="card-title text-center mb-5 bg-info pb-2">Connexion Form</h3>
+				<form method="post" action="." class="form-signin"enctype="multipart\form-data" >
+
+				{% csrf_token %}
+				
+				
+				{{profile_form.as_p}}
+
+				<button class="btn btn-lg btn-primary btn-block" name="submit" type="submit">Enregistrer</button>
+				<a href="{% url 'login' %}" class="btn btn-lg btn-primary btn-block">Connexion</a>
+				</form>
+			</section>
+		</section>
+	</section>
+
+	{% endif %}
+	
+	{% if connexion %}
+	<section class="container-fluid mt-5">
+		<section class="row justify-content-center">
+			<section class="col-12 col-sm-6 col-md-4">
+				<h3 class="card-title text-center mb-5 bg-info pb-2">Connexion Form</h3>
+				<form method="post" action="." class="form-signin">
+
+				{% csrf_token %}
+				
+				
+				{{connexion.as_p}}
+
+				<button class="btn btn-lg btn-primary btn-block" name="submit" type="submit">Connexion</button>
+				<a href="{% url 'registerPro' %}" class="btn btn-lg btn-primary btn-block">Enregistrer</a>
+				</form>
+			</section>
+		</section>
+	</section>
+	{% endif %}
+
+	{% endblock %}
+
+
+
+
+	
+
+	
+	
+	
+
